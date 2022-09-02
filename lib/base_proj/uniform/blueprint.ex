@@ -16,6 +16,18 @@ defmodule BaseProj.Uniform.Blueprint do
     # Their paths and file contents will replace base_proj with the ejected
     # app name automatically.
     always do
+      mix :phoenix
+      mix :phoenix_ecto
+      mix :ecto_sql
+      mix :phoenix_html
+      mix :phoenix_live_reload
+      mix :phoenix_live_view
+      mix :phoenix_live_dashboard
+      mix :esbuild
+      mix :gettext
+      mix :jason
+      mix :plug_cowboy
+
       lib :base_proj do
         only [
           "lib/base_proj/application.ex",
