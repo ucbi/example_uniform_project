@@ -55,4 +55,12 @@ defmodule BaseProj.Uniform.Blueprint do
       end
     end
   end
+
+  modify "lib/base_proj_web/router.ex", fn file, app ->
+    String.replace(
+      file,
+      "scope \"/#{app.name.hyphen}\"",
+      "scope \"/\""
+    )
+  end
 end
