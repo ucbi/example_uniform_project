@@ -14,11 +14,13 @@ defmodule BaseProjWeb.Router do
     plug :accepts, ["json"]
   end
 
+  # uniform:remove
   scope "/", BaseProjWeb do
     pipe_through :browser
 
     get "/", PageController, :index
   end
+  # /uniform:remove
 
   # uniform:app:tweeter
   scope "/tweeter", TweeterWeb do
