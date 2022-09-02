@@ -1,13 +1,7 @@
 defmodule TweeterWeb.TweetsLive do
   use BaseProjWeb, :live_view
 
-  defp tweets do
-    [
-      {"Amos King", "@adkron", "Aug 29", "What does the evening hold #ElixirConf2022 #ElixirConf?"},
-      {"Brian Cardarella", "@bcardarella", "11h", "We just deployed a fix for the #ElixirConf2022 chat app that fixed the user counts. Fixed in 5 minutes, deployed in 1 minute. Already on everyone's phone. That's LiveViewNative"},
-      {"todd resudek", "@sprsmpl", "Aug 29", "I've just launched another micro-project. It is called RandomUUID and it generates a random uuidv4. It is available in the browser or as a json API."},
-    ]
-  end
+  alias TweetData.Tweets
 
   def render(assigns) do
     ~H"""
@@ -29,7 +23,7 @@ defmodule TweeterWeb.TweetsLive do
         <button class="rounded-full bg-blue-500 text-white px-4 py-2 flex items-center justify-center">Tweet</button>
 
         <div class="mt-16">
-          <%= for {name, handle, date, body} <- tweets() do %>
+          <%= for {name, handle, date, body} <- Tweets.get_tweets() do %>
             <div class="mb-16 last:mb-0">
               <div class="p-3 bg-gray-600">
                 <strong class="font-semibold text-gray-50"><%= name %></strong>
