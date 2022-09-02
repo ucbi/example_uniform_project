@@ -7,6 +7,10 @@
 # General application configuration
 import Config
 
+# uniform:remove
+config :base_proj, Uniform, blueprint: BaseProj.Uniform.Blueprint
+# /uniform:remove
+
 config :base_proj,
   ecto_repos: [BaseProj.Repo]
 
